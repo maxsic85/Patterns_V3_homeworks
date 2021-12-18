@@ -1,15 +1,29 @@
 using UnityEngine;
 namespace Asteroids
 {
-    internal sealed class Ship : IMove, IRotation
+    public sealed class Ship : IMove, IRotation
     {
         private readonly IMove _moveImplementation;
         private readonly IRotation _rotationImplementation;
+        public readonly ShipModel _shipModel;
+        public readonly ShipView _shipView;
+        public float speed;
+        public float acceleration;
+        public float hp; 
+        
+
         public float Speed => _moveImplementation.Speed;
-        public Ship(IMove moveImplementation, IRotation rotationImplementation)
+        public Ship(ShipModel shipModel,ShipView shipView,IMove moveImplementation, IRotation rotationImplementation)
         {
+            _shipModel = shipModel;
+            _shipView = shipView;
             _moveImplementation = moveImplementation;
             _rotationImplementation = rotationImplementation;
+
+            speed = shipModel.Speed;
+            acceleration = shipModel.Accseleration;
+            hp = shipModel.HP;
+           
         }
         public void Move(float horizontal, float vertical, float deltaTime)
         {

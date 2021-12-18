@@ -22,6 +22,6 @@ namespace MSuhinin.Factorial
             Factorial = factorial;
             SumDigit = sumDigit;
             MaxDigit = maxDigit;
-        }     
+        }
     }
 }

@@ -11,11 +11,11 @@ namespace Asteroids
         }
         public void AddAcceleration()
         {
-            Speed += _acceleration;
+            Speed -= _acceleration;
         }
         public void RemoveAcceleration()
         {
-            Speed -= _acceleration;
+            Speed += _acceleration;
         }
     }
 }

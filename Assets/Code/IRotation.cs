@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 namespace Asteroids
 {
-    internal interface IRotation
+    public interface IRotation
     {
         void Rotation(Vector3 direction);
     }

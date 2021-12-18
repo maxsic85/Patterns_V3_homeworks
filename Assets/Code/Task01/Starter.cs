@@ -6,7 +6,7 @@ namespace MSuhinin.Factorial
 {
     public class Starter : MonoBehaviour
     {
-        FactorialController factorialController;
+        IFactorial factorialController;
         IView view;
         void Start()
         {
