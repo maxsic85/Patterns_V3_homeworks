@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace Asteroids
 {
-    internal sealed class AccelerationMove : MoveTransform
+    public class AccelerationMove : MoveTransform,IAcceleration
     {
         private readonly float _acceleration;
         public AccelerationMove(Transform transform, float speed, float acceleration)
@@ -9,11 +9,11 @@ namespace Asteroids
         {
             _acceleration = acceleration;
         }
-        public void AddAcceleration()
+        public virtual void AddAcceleration()
         {
-            Speed -= _acceleration;
+           Speed -= _acceleration;
         }
-        public void RemoveAcceleration()
+        public virtual void RemoveAcceleration()
         {
             Speed += _acceleration;
         }

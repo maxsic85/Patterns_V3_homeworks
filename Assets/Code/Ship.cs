@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace Asteroids
 {
-    public sealed class Ship : IMove, IRotation
+    public sealed class Ship 
     {
         private readonly IMove _moveImplementation;
         private readonly IRotation _rotationImplementation;
@@ -35,14 +35,14 @@ namespace Asteroids
         }
         public void AddAcceleration()
         {
-            if (_moveImplementation is AccelerationMove accelerationMove)
+            if (_moveImplementation is IAcceleration accelerationMove)
             {
                 accelerationMove.AddAcceleration();
             }
         }
         public void RemoveAcceleration()
         {
-            if (_moveImplementation is AccelerationMove accelerationMove)
+            if (_moveImplementation is IAcceleration accelerationMove)
             {
                 accelerationMove.RemoveAcceleration();
             }

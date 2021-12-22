@@ -7,17 +7,17 @@ namespace Asteroids
     public class ShipInitialisation : IInitialisation
     {
 
-        IShipFabric shipFabric;
+        IShipFabric _shipFabric;
         public Ship CurrentShip { get;  }
 
         public ShipInitialisation(IShipFabric shipFabric, ShipModel shipModel, ShipType shipType)
         {
-            this.shipFabric = shipFabric;
+            _shipFabric = shipFabric;
 
             Ship ship = shipType switch
             {
-                ShipType.PLAYER => shipFabric.CreatePlayer(shipModel),
-                ShipType.ENEMY => shipFabric.CreateEnemy(shipModel),
+                ShipType.PLAYER => _shipFabric.CreatePlayerWithRB(shipModel),
+                ShipType.ENEMY => _shipFabric.CreateEnemy(shipModel),
                 0 => null
             };
             CurrentShip = ship;
