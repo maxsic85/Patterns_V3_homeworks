@@ -7,17 +7,19 @@ namespace Asteroids
     public class ShootController : IExecute
     {
         Ship shootingShip;
-        BarrelModel barrelModel;
-        IBulletFabrick  currentBurrel;
+        RocketModel barrelModel;
+        PoolRocket _poolRocket ;
+        RocketProvider _currentRocket;
         //[SerializeField] private Rigidbody2D _rocket;
         [SerializeField] private Transform _startPosition;
 
-        public ShootController(BarrelModel barrelModel,IBulletFabrick bulletFabrick,ShipInitialisation ship)
+        public ShootController(RocketModel rocketModel,PoolRocket poolRocket ,ShipInitialisation ship)
         {
-            this.barrelModel = barrelModel;
-            _startPosition = barrelModel.startPosition;
+            this.barrelModel = rocketModel;
+            _startPosition = rocketModel.startPosition;
             shootingShip = ship.CurrentShip;
-            currentBurrel = bulletFabrick;
+            _poolRocket = poolRocket;
+            _currentRocket= _poolRocket.GetBuilett("rocket");
         }
 
         public void Execute(float deltatime)
@@ -25,11 +27,9 @@ namespace Asteroids
             if (Input.GetButtonDown("Fire1"))
             {
                 _startPosition = shootingShip._shipView.transform;
-                var rocket = currentBurrel.CreateBarrel(barrelModel);
-                //  rocket.Move(100,1,Time.deltaTime);
-                //var temAmmunition = Instantiate(_rocket, barrelModel.startPosition.position,
-                //_startPosition.rotation);
-                rocket.rigidbody2D.AddForce(_startPosition.up * barrelModel.Force);
+                _currentRocket= _poolRocket.GetBuilett("rocket");
+                _currentRocket.OnActive();
+                _currentRocket.rigidbody2D.AddForce(_startPosition.up * barrelModel.Force);
             }
         }
     }

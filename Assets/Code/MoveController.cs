@@ -19,6 +19,8 @@ namespace Asteroids
 
         public void Execute(float deltatime)
         {
+            ship.CurrentShip._shipView.UpdateUI(ship.CurrentShip);
+
             ship.CurrentShip.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),
              Time.deltaTime);
 

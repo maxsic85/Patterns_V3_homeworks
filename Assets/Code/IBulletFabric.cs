@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Asteroids
 {
-    public interface IBulletFabrick 
+    public interface IRocketFabrick 
     {
-        public Barrel CreateBarrel(BarrelModel  barrelModel);
+        public Rocket CreateBarrel(RocketModel  barrelModel);
               
     }
 }

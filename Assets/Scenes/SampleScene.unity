@@ -167,8 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78891a945769f73469e7cc74520db4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rocket: {fileID: 6450091716008069222, guid: 12033330cb47c0b46a6f40b3ac17cf83, type: 3}
-  _startPosition: {fileID: 8247731746937440099, guid: 3604b73095131f14ca42b34cd5b20ab1, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -337,7 +335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1322941984
 MonoBehaviour:
   m_ObjectHideFlags: 0
