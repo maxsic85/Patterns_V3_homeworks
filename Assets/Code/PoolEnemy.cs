@@ -20,7 +20,7 @@ namespace Asteroids
               //  var random = Random.Range(-8, 8);
                 var random = Random.Range(Camera.main.transform.localPosition.z + offset, -1*Camera.main.transform.localPosition.z-offset);
 
-                var vector = new Vector2(random, 5);
+                var vector = new Vector2(random, 4);
                 return vector;
             }
          
@@ -71,7 +71,7 @@ namespace Asteroids
         }
         private EnemyProvider GetEnemyShip(HashSet<EnemyProvider> ships)
         {
-            _enemyModel.TypeShip = ShipType.ENEMY;
+            _enemyModel.TypeShip = ShipType.ENEMY2;
             var rocket = ships.FirstOrDefault(a => !a.gameObject.activeSelf);
             if (rocket == null)
             {

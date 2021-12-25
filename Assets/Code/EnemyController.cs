@@ -10,7 +10,7 @@ namespace Asteroids
         EnemyProvider _currentEnemy;
         EnemyProvider _currentAsteroid;
         PoolEnemy _poolEnemy;
-
+        PoolRocket _poolRocket;
         public int GetEnemyNumber
         {
             get
@@ -19,11 +19,12 @@ namespace Asteroids
             }
 
         }
-        public EnemyController(PoolEnemy poolEnemy)
+        public EnemyController(PoolEnemy poolEnemy, PoolRocket poolRocket)
         {
             _poolEnemy = poolEnemy;
-            GetAsteroid(_poolEnemy);
-            GetsHIP(_poolEnemy);
+            _poolRocket = poolRocket;
+          //  GetAsteroid(_poolEnemy);
+         //   GetsHIP(_poolEnemy);
         }
 
         private void GetEnenmyOnSceene(int number)
@@ -40,11 +41,20 @@ namespace Asteroids
         private void GetAsteroid(PoolEnemy poolEnemy)
         {
             _currentAsteroid = poolEnemy.GetEnemy("asteroid");
+
         }
 
         private void GetsHIP(PoolEnemy poolEnemy)
         {
             _currentEnemy = poolEnemy.GetEnemy("enemyship");
+            EnemyShoot();
+        }
+        void EnemyShoot()
+        {
+            var rocket = _poolRocket.GetBuilett("rocket");
+            rocket.UpdatePosition(_currentEnemy.transform);
+            rocket.OnActive();
+            rocket.rigidbody2D.AddForce(Vector3.down * _poolRocket._rocketModel.Force * 3);
         }
 
 

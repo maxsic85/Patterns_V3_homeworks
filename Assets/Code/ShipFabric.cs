@@ -13,7 +13,8 @@ namespace Asteroids
             {
                 ShipType.ASTEROID => GameObject.Instantiate(Resources.Load(shipModel.TypeShip.ToString(), typeof(GameObject))) as GameObject,
                 ShipType.ENEMY => GameObject.Instantiate(Resources.Load(shipModel.TypeShip.ToString(), typeof(GameObject))) as GameObject,
-            
+                ShipType.ENEMY2 => GameObject.Instantiate(Resources.Load(shipModel.TypeShip.ToString(), typeof(GameObject))) as GameObject,
+
             };
 
             GetMove = new MoveTransform(enemy.transform, shipModel.Speed);
