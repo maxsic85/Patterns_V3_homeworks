@@ -9,8 +9,8 @@ namespace Asteroids
         public readonly ShipView _shipView;
         public float speed;
         public float acceleration;
-        public float hp; 
-        
+        public float hp;
+        public EnemyProvider CurrentEnemy { get; set; }
 
         public float Speed => _moveImplementation.Speed;
         public Ship(ShipModel shipModel,ShipView shipView,IMove moveImplementation, IRotation rotationImplementation)

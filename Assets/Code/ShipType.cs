@@ -7,6 +7,7 @@ namespace Asteroids
     public enum ShipType 
     {
        PLAYER=1,
-       ENEMY=2
+       ENEMY=2,
+       ASTEROID=3
     }
 }

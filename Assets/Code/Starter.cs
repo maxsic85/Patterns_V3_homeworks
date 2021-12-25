@@ -13,6 +13,7 @@ namespace Asteroids
             controllers = new Controllers();
             new GameInitialisation(controllers);
             controllers.Initialisation();
+            InvokeRepeating("Invoker", 2f, 2f);
 
         }
 
@@ -20,6 +21,11 @@ namespace Asteroids
         {
             var deltaTime = Time.deltaTime;
             controllers.Execute(deltaTime);
+        }
+
+        public void Invoker()
+        {
+            controllers.Invoker();
         }
     }
 }

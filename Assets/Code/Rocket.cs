@@ -4,24 +4,17 @@ using UnityEngine;
 
 namespace Asteroids
 {
-    public class Rocket 
+    public class Rocket
     {
-        RocketModel barrelModel;
-      public  RocketProvider barrelProvider;
-      public Rigidbody2D rigidbody2D { get; set; }
-
+        RocketModel _barrelModel;
+        public RocketProvider _barrelProvider { get; set; }
+        public Rigidbody2D rigidbody2D { get; set; }
         public Rocket(RocketModel barrelModel, RocketProvider barrelProvider)
         {
-            this.barrelModel = barrelModel;
-            this.barrelProvider = barrelProvider;
+            this._barrelModel = barrelModel;
+            this._barrelProvider = barrelProvider;
+
+        }
       
-        }
-
-        public float Speed => throw new System.NotImplementedException();
-
-        public void Move(float horizontal, float vertical, float deltaTime)
-        {
-           
-        }
     }
 }

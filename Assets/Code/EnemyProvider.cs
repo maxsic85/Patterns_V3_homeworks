@@ -6,15 +6,15 @@ using UnityEngine;
 namespace Asteroids
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class RocketProvider : MonoBehaviour
+    public class EnemyProvider : MonoBehaviour
     {
-        public Rigidbody2D rigidbody2D { get; set; }
         private Transform root;
+        public Rigidbody2D _rigitbody { get; set; }
         public Transform Root
         {
             get
             {
-                root = GameObject.Find(NameManager.POOL_AMMUNITION).transform;
+                root = GameObject.Find(NameManager.POOL_ENEMY).transform;
                 root = (root == null) ? GameObject.Instantiate(new GameObject(), Vector3.zero, Quaternion.identity).transform : root;
                 return root;
             }
@@ -22,22 +22,27 @@ namespace Asteroids
         }
         void Awake()
         {
-            rigidbody2D = GetComponent<Rigidbody2D>();
+            _rigitbody = GetComponent<Rigidbody2D>();
         }
         public void RetunrToPool()
         {
             this.gameObject.transform.SetParent(Root);
-            rigidbody2D.AddForce(Vector2.zero);
+            this.gameObject.transform.localPosition = Vector2.one;
+            _rigitbody.velocity = Vector2.zero;
             this.gameObject.SetActive(false);
+
+          
         }
         public void OnActive()
         {
             gameObject.SetActive(true);
+            _rigitbody.AddForce(Vector2.down * 100);
+
         }
-        public void UpdatePosition(Transform pos)
+        public void SetStartPosition(Vector2 pos)
         {
-            transform.position = pos.position;
-           transform.rotation = pos.rotation;
+            transform.position = pos;
+          
         }
         private void OnBecameInvisible()
         {

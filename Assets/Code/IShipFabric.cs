@@ -6,8 +6,8 @@ namespace Asteroids
 {
     public interface IShipFabric
     {
-        Ship CreatePlayerWithOutRB(ShipModel shipModel);
-        Ship CreatePlayerWithRB(ShipModel shipModel);
-        Ship CreateEnemy(ShipModel shipModel);
+        Ship CreatePlayerWithOutRigitBody(ShipModel shipModel);
+        Ship CreatePlayerWithRigitBody(ShipModel shipModel);
+        Ship CreateEnemyShip(ShipModel shipModel);
     }
 }

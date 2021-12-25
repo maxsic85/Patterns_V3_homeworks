@@ -10,13 +10,12 @@ namespace Asteroids
         RocketModel barrelModel;
         PoolRocket _poolRocket ;
         RocketProvider _currentRocket;
-        //[SerializeField] private Rigidbody2D _rocket;
         [SerializeField] private Transform _startPosition;
 
-        public ShootController(RocketModel rocketModel,PoolRocket poolRocket ,ShipInitialisation ship)
+        public ShootController(PoolRocket poolRocket ,ShipInitialisation ship)
         {
-            this.barrelModel = rocketModel;
-            _startPosition = rocketModel.startPosition;
+            this.barrelModel = poolRocket._rocketModel;
+            _startPosition = poolRocket._rocketModel.startPosition;
             shootingShip = ship.CurrentShip;
             _poolRocket = poolRocket;
             _currentRocket= _poolRocket.GetBuilett("rocket");
