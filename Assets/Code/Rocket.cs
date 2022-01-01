@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Asteroids
 {
+    [Serializable]
     public class Rocket
     {
         RocketModel _barrelModel;

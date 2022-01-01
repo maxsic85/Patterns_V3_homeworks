@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Asteroids
 {
+    
     [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyProvider : MonoBehaviour
     {

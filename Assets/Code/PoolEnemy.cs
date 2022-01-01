@@ -96,8 +96,6 @@ namespace Asteroids
         }
         private void ReturnToPool(Transform transform)
         {
-            // transform.localPosition = Vector3.zero;
-            // transform.localRotation = Quaternion.identity;
             transform.gameObject.SetActive(false);
             transform.SetParent(_rootPool);
         }
