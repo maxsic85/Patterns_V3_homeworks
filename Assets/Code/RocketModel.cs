@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Asteroids
 {
-
+    [Serializable]
     public class RocketModel
     {
         public RocketModel(Transform startPosition, float force, float damage)
